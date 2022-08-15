@@ -68,7 +68,7 @@ namespace TextComponentsTest
             {
                 if(redSpan.BackgroundColorDefined)
                 {
-                    Spannable.UnAttachSpan(textTarget, redSpan );
+                    Spannable.DetachSpan(textTarget, redSpan );
                     Spannable.BuildSpannedText(textTarget );
                 }
 
@@ -81,7 +81,13 @@ namespace TextComponentsTest
             Spannable.AttachSpan(textTarget, redSpan, 8,10);
 
             //Inline Example
+
+             //Builder
             Spannable.AttachSpan(textTarget, BackgroundSpanBuilder.Initialize().WithBackgroundColor(Color.Green).Build(), 0,2);
+
+
+            //Factory
+            Spannable.AttachSpan(textTarget, BackgroundSpan.CreateWithBackgroundColor(Color.Blue), 11,15);
             Spannable.BuildSpannedText(textTarget );
 
 

@@ -14,7 +14,7 @@ namespace TextComponentsTest
 {
     class Example : NUIApplication
     {
-         FontSpan  boldSpan;
+         FontSpan  boldAndItalicSpan;
 
         protected override void OnCreate()
         {
@@ -66,19 +66,22 @@ namespace TextComponentsTest
             view.Add(button);
             button.Clicked += (s, e) =>
             {
-                if(boldSpan.SlantDefined)
+                if(boldAndItalicSpan.SlantDefined)
                 {
-                    Spannable.UnAttachSpan(textTarget, boldSpan );
+                    Spannable.DetachSpan(textTarget, boldAndItalicSpan );
                     Spannable.BuildSpannedText(textTarget );
                 }
 
             };
 
             var builder = FontSpanBuilder.Initialize();
-            builder.WithFontWeight(FontWeightType.ExtraBold);
-            boldSpan = builder.Build();
-            Spannable.AttachSpan(textTarget, boldSpan, 3,6);
-            Spannable.AttachSpan(textTarget, boldSpan, 10,15);
+            builder.WithFontWeight(FontWeightType.ExtraBold)
+                   .WithFontSlant(FontSlantType.Italic);
+
+
+            boldAndItalicSpan = builder.Build();
+            Spannable.AttachSpan(textTarget, boldAndItalicSpan, 3,6);
+            Spannable.AttachSpan(textTarget, boldAndItalicSpan, 10,15);
 
             //Inline Example
             Spannable.AttachSpan(textTarget, FontSpanBuilder.Initialize()

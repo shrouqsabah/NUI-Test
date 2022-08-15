@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="../../../nui/TizenFX/src/Tizen.NUI/Tizen.NUI.csproj" />
-    <ProjectReference Include="../../../nui/TizenFX/src/Tizen.NUI.Components/Tizen.NUI.Components.csproj" />
+    <ProjectReference Include="../../TizenFX/src/Tizen.NUI/Tizen.NUI.csproj" />
+    <ProjectReference Include="../../TizenFX/src/Tizen.NUI.Components/Tizen.NUI.Components.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
